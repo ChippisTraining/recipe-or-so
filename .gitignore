@@ -54,3 +54,5 @@ debug.log
 *.egg-info/
 dist/
 build/
+
+example
