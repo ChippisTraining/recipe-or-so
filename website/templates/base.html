@@ -48,13 +48,23 @@
       <!-- end of nav -->
     </header>
 
-    <main>
+    <!-- main -->
+    <main class="page">
       {% block content %}
 
       {% endblock %}
     </main>
+    <!-- end of main -->
 
-    <footer></footer>
+    <!-- footer -->
+    <footer class="page-footer">
+      <p>
+        &copy; Chipperfluff / Dominik Krenn :3 <span id="date">1963</span>
+        <span class="footer-logo">SimplyRecipes</span>
+        Build by ChatGPT
+      </p>
+    </footer>
+    <!-- end of footer -->
 
     <!-- js include -->
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
