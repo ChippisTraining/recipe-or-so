@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% block title %}{% endblock title %}</title>
+
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='assets/favicon.ico') }}"
+    type="image/x-icon"
+  />
+  <!-- normalize -->
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/normalize.css') }}"
+  />
+  <!-- font-awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  />
+  <!-- main css -->
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css')}}"
+  />
+</head>
+
+<body>
+  <header>
+    <!-- nav -->
+    <nav class="navbar">
+      <div class="nav-center">
+        <!-- header-->
+        <div class="nav-header">
+          <a href="{{ url_for('public.index') }}" class="nav-logo">
+            <img
+              src="{{ url_for('static', filename='assets/logo.svg') }}"
+              alt="simply recipes logo"
+            />
+          </a>
+
+          <button type="button" class="btn nav-btn">
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+
+        <!-- links -->
+        <div class="nav-links">
+          <a href="{{ url_for('public.index') }}" class="nav-link">home</a>
+          <a href="{{ url_for('public.about') }}" class="nav-link">about</a>
+          <a href="{{ url_for('public.tags') }}" class="nav-link">tags</a>
+          <a href="{{ url_for('public.recipes') }}" class="nav-link">recipes</a>
+          <div class="nav-link contact-link">
+            <a href="{{ url_for('public.contact') }}" class="btn">contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of nav-->
+  </head>
+
+  <main>
+    {% block content %} {% endblock content %}
+  </main>
+
+  <footer>
+
+  </footer>
+</body>
+
+</html>
