@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  <!-- hero section -->
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-text">
@@ -13,4 +14,36 @@
       </div>
     </div>
   </section>
+  <!-- end of hero section -->
+
+  <!-- recipes section -->
+  <section class="recipes-section">
+    <!-- tags container -->
+    <div class="tags-container">
+      <h4>recipes</h4>
+      <div class="tags-list">
+        <!-- no tags -->
+        {% if not tag_data %}
+          <p class="no-tags">No Tags</p>
+        {% endif %}
+        <!-- end of no tags -->
+
+        <!-- tags loop -->
+        {% for tag in tag_data %}
+          <a href="{{ url_for('public.tags', tag=tag.tag) }}" class="tag-url {% if tag.count == 0 %}tag-zero{% endif %}">{{ tag.title }} ({{ tag.count }})</a>
+        {% endfor %}
+        <!-- end of tags loop -->
+      </div>
+    </div>
+    <!-- ends of tag container -->
+
+    <!-- recipes list -->
+    <div class="recipes-list">
+      <!-- single recipe -->
+      <a href="{{ url_for('public.recipe', author='Dominik', id=164) }}" class="recipe">lallala</a>
+      <!-- end of single recipe -->
+    </div>
+    <!-- ends of recipes list -->
+  </section>
+  <!-- end of recipes section -->
 {% endblock %}
