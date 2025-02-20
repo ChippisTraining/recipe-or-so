@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+*.env
+
+# Environment variables and secret files
+instance/
+config.py
+*.pem
+*.key
+
+# Logs and database files
+logs/
+*.log
+*.sqlite3
+*.db
+
+# Cache and session files
+*.swp
+*.swo
+*.bak
+*.cache
+*.pyo
+*.pid
+*.seed
+*.session
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency files
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Flask-specific files
+instance/
+*.pid
+debug.log
+
+# Compiled files
+*.egg-info/
+dist/
+build/
