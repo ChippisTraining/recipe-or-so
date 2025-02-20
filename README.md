@@ -47,6 +47,6 @@ python3 app.py
 ```
 
 then you can acces the web app under
-[127.0.0.1:8000](127.0.0.1:8000)
+[127.0.0.1:8000](http://127.0.0.1:8000)
 
 or when you changed the .env under your chosen
