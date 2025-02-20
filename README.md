@@ -1,52 +1,53 @@
 # recipe-or-so
 
-## a html & css project
+## A HTML & CSS Project
 
-a simple recipe side via a yt turial
+A simple recipe site based on a YouTube tutorial:
 
-[freeCodeCamp.org](https://youtu.be/-8LTPIJBGwQ?si=A6fow5dNDeIBtu2w)
+[FreeCodeCamp.org](https://youtu.be/-8LTPIJBGwQ?si=A6fow5dNDeIBtu2w)
 
-## why flask
+## Why Flask?
 
-i didnt want to copy paste all so i setup a simple flask app for templating
-later i maybe make it work
+I didn’t want to copy-paste everything manually, so I set up a simple Flask app for templating.  
+Later, I might expand it into a fully functional web app.
 
-## how to use
+## How to Install & Use
 
-1. clone the repo
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/ChippisTraining/recipe-or-so.git
-cd recipe-or-so.git
+cd recipe-or-so
 ```
 
-2. create the venv
+### 2. Create a Virtual Environment
 ```bash
-# create venv
+# Create virtual environment
 python3 -m venv venv
 
-# activate venv
-# on linux or mac
+# Activate virtual environment
+# On Linux or macOS
 source venv/bin/activate
 
-# on windows
-.\venv\Scripts\activate
+# On Windows
+venv\Scripts\activate
 
-# install modules
+# Install dependencies
 pip install -r requirements.txt
 
-# to exit venv
+# To exit the virtual environment
 deactivate
 ```
 
-3. create the env file
-you need to copy/rename the .env.example file to/as .env
+### 3. Set Up the Environment File
+- Copy or rename `.env.example` to `.env`
+- Configure settings as needed
 
-4. start the web app
+### 4. Start the Web App
 ```bash
 python3 app.py
 ```
 
-then you can acces the web app under
-[127.0.0.1:8000](http://127.0.0.1:8000)
+Now, you can access the web app at:  
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-or when you changed the .env under your chosen
+Or at your chosen address if you modified the `.env` settings.
