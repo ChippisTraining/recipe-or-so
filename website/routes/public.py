@@ -68,7 +68,7 @@ def tags_template(tag: str):
 
 @public.route('/tags')
 def tags():
-    return render_template('tags.html', tag_data=recipes_data)
+    return render_template('tags.html', tag_data=tag_data)
 
 @public.route('/recipes')
 def recipes():
