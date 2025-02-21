@@ -55,7 +55,8 @@ recipes_data = [
 
 @public.route('/')
 def index():
-    return render_template('index.html', tag_data=tag_data, recipes_data=recipes_data)
+    ctr = request.values.get('no', None)
+    return render_template('index.html', tag_data=tag_data, recipes_data=[] if ctr else recipes_data)
 
 @public.route('/about')
 def about():
@@ -74,7 +75,7 @@ def recipes():
 def recipe(id: int, title: str):
     return render_template('single-recipe.html')
 
-@public.route('/contact')
+@public.route('/contact', methods=['GET', 'POST'])
 def contact():
     return render_template('contact.html', recipes_data=recipes_data)
 
