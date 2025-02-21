@@ -1,54 +1,65 @@
-{% extends 'base.html' %}
-
-{% block title %}
-  Simply Recipes
-{% endblock %}
-
-{% block content %}
-  <!-- hero section -->
-  <section class="hero-section">
-    <div class="hero-container">
-      <div class="hero-text">
-        <h1>Simply Recipes</h1>
-        <h4>Recipes, from humans for humans</h4>
-      </div>
+{% extends 'base.html' %} {% block title %} Simply Recipes {% endblock %} {%
+block content %}
+<!-- hero section -->
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Simply Recipes</h1>
+      <h4>Recipes, from humans for humans</h4>
     </div>
-  </section>
-  <!-- end of hero section -->
+  </div>
+</section>
+<!-- end of hero section -->
 
-  <!-- recipes section -->
-  <section class="recipes-section">
-    <!-- tags container -->
-    <div class="tags-container">
-      <h4>recipes</h4>
-      <div class="tags-list">
-        <!-- no tags -->
-        {% if not tag_data %}
-          <p class="no-tags">No Tags</p>
-        {% endif %}
-        <!-- end of no tags -->
+<!-- recipes section -->
+<section class="recipes-section">
+  <!-- tags container -->
+  <div class="tags-container">
+    <h4>recipes</h4>
+    <div class="tags-list">
+      <!-- no tags -->
+      {% if not tag_data %}
+      <p class="no-tags">No Tags</p>
+      {% endif %}
+      <!-- end of no tags -->
 
-        <!-- tags loop -->
-        {% for tag in tag_data %}
-          <a href="{{ url_for('public.tags', tag=tag.tag) }}" class="tag-url {% if tag.count == 0 %}tag-zero{% endif %}">{{ tag.title }} ({{ tag.count }})</a>
-        {% endfor %}
-        <!-- end of tags loop -->
-      </div>
+      <!-- tags loop -->
+      {% for tag in tag_data %}
+      <a
+        href="{{ url_for('public.tags', q=tag.tag) }}"
+        class="tag-url {% if tag.count == 0 %}tag-zero{% endif %}"
+        >{{ tag.title }} ({{ tag.count }})</a
+      >
+      {% endfor %}
+      <!-- end of tags loop -->
     </div>
-    <!-- ends of tag container -->
+  </div>
+  <!-- ends of tag container -->
 
-    <!-- recipes list -->
-    <div class="recipes-list">
-      <!-- single recipe -->
-      <a href="{{ url_for('public.recipe', id=114, author='Chipperfluff') }}" class="recipe">
-        <!-- Keep this space (auto formater dumps all into one line (╯°□°)╯︵ ┻━┻) -->
-        <img src="{{ url_for('api.fetch_images', filename='114/recipes/recipe-1.jpeg') }}" alt="Recipe Image" class="img recipe-img" />
-        <h5>Recipe Name</h5>
-        <p>Prep : 99min | Cook 99min</p>
-      </a>
-      <!-- end of single recipe -->
-    </div>
-    <!-- ends of recipes list -->
-  </section>
-  <!-- end of recipes section -->
+  <!-- recipes list -->
+  <div class="recipes-list">
+    <!-- generate templates-->
+    {% for recipe in recipes_data %}
+    <!-- single recipe -->
+    <a
+      href="{{ url_for('public.recipe', id=recipe['id'], title=recipe['title']) }}"
+      class="recipe"
+    >
+      <!-- Keep this space (auto formater dumps all into one line (╯°□°)╯︵ ┻━┻) -->
+      <img
+        src="{{ url_for('api.fetch_images', filename=recipe['thumbnail']) }}"
+        alt="{{ recipe['alt_text'] }}"
+        class="img recipe-img"
+      />
+      <h5>recipe['title']</h5>
+      <p>
+        Prep : {{ recipe['prep_time'] }}min | Cook {{ recipe['cook_time'] }}min
+      </p>
+    </a>
+    <!-- end of single recipe -->
+    {% endfor %}
+  </div>
+  <!-- ends of recipes list -->
+</section>
+<!-- end of recipes section -->
 {% endblock %}
