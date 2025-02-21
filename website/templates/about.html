@@ -6,6 +6,24 @@
 
 {% block content %}
 <main class="page">
-  <h1>About</h1>
+  <section class="about-page">
+    <article>
+      <h2>Lorem ipsum, doloris sit</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ipsa porro error neque enim. Aut?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit minus amet, eaque cumque expedita labore quas reiciendis, eius itaque cupiditate non asperiores ipsum accusamus quisquam, maiores alias quod sint dolorem.
+      </p>
+      <a href="{{ url_for('public.contact') }}" class="btn">Contact</a>
+    </article>
+    <img src="{{ url_for('static', filename='assets/about.jpeg') }}" alt="salt" class="img about-img">
+  </section>
+  
+  <section class="featured-recipes">
+    <h5 class="featured-title">Look At This Awesomesouce!</h5>
+
+    {% include './components/recipe-list.html' %}
+  </section>
 </main>
 {% endblock %}

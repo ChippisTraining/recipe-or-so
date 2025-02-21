@@ -6,6 +6,11 @@
 
 {% block content %}
 <main class="page">
-  <h1>Contact</h1>
+  <section class="contact-container"></section>
+  <section class="featured-recipes">
+    <h5 class="featured-title">Look At This Awesomesouce!</h5>
+
+    {% include './components/recipe-list.html' %}
+  </section>
 </main>
 {% endblock %}
