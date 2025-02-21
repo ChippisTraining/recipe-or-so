@@ -6,6 +6,7 @@
 
 {% block content %}
 <main class="page">
-  <h1>Tags</h1>
+  <h1>{{ chosen_tag}}</h1>
+  {% include './components/recipe-list.html' %}
 </main>
 {% endblock %}

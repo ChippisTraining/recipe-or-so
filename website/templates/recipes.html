@@ -6,6 +6,9 @@
 
 {% block content %}
 <main class="page">
-  <h1>Recipes</h1>
+  <section class="recipes-container">
+    {% include './components/tag-list.html' %}
+    {% include './components/recipe-list.html' %}
+  </section>
 </main>
 {% endblock %}
