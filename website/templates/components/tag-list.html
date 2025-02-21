@@ -7,7 +7,7 @@
 
     {% for tag in tag_data %}
       <a
-        href="{{ url_for('public.tags', q=tag.tag) }}"
+        href="{{ url_for('public.tags_template', tag=tag.tag) }}"
         class="tag-url {% if tag.count == 0 %}tag-zero{% endif %}"
         >{{ tag.title }} ({{ tag.count }})</a
       >

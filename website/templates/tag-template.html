@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Tags Template
+  Tags
 {% endblock %}
 
 {% block content %}
 <main class="page">
-  <h1>Tags Template</h1>
+  <h1>{{ chosen_tag}}</h1>
+  {% include './components/recipe-list.html' %}
+
 </main>
 {% endblock %}

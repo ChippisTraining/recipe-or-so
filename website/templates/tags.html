@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Tags
+  Tags Template
 {% endblock %}
 
 {% block content %}
 <main class="page">
-  <h1>{{ chosen_tag}}</h1>
-  {% include './components/recipe-list.html' %}
-
+  <section class="tags-wrapper">
+    {% if not tag_data %}
+      <p class="no-tag">No tags created yet</p>
+    {% else %}
+      {% for tag in tag_data %}
+        <a
+          href="{{ url_for('public.tags_template', tag=tag.tag) }}"
+          class="tag"
+        >
+          <h5>{{ tag.title }}</h5>
+          <p>{{ tag.count }} recipe</p>
+        </a>
+      {% endfor %}
+    {% endif %}
+  </section>
 </main>
 {% endblock %}

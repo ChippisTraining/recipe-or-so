@@ -62,10 +62,13 @@ def index():
 def about():
     return render_template('about.html', recipes_data=recipes_data)
 
+@public.route('/tag/<tag>')
+def tags_template(tag: str):
+    return render_template('tag-template.html', chosen_tag=tag, recipes_data=recipes_data)
+
 @public.route('/tags')
 def tags():
-    tag_query = request.values.get('q', 'All')
-    return render_template('tags.html', chosen_tag=tag_query, recipes_data=recipes_data)
+    return render_template('tags.html', tag_data=recipes_data)
 
 @public.route('/recipes')
 def recipes():
