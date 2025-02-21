@@ -1,22 +1,20 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 import os
 
 public = Blueprint('public', __name__, template_folder='templates')
 
-@public.route('/')
-def index():
-    tag_data = [
-        {"tag": "pizza", "title": "Pizza", "count": 12},
-        {"tag": "pasta", "title": "Pasta", "count": 8},
-        {"tag": "salad", "title": "Salad", "count": 5},
-        {"tag": "dessert", "title": "Dessert", "count": 10},
-        {"tag": "vegan", "title": "Vegan", "count": 4},
-        {"tag": "bbq", "title": "BBQ", "count": 6},
-        {"tag": "seafood", "title": "Seafood", "count": 0},
-        {"tag": "breakfast", "title": "Breakfast", "count": 0}
-    ]
+tag_data = [
+    {"tag": "pizza", "title": "Pizza", "count": 12},
+    {"tag": "pasta", "title": "Pasta", "count": 8},
+    {"tag": "salad", "title": "Salad", "count": 5},
+    {"tag": "dessert", "title": "Dessert", "count": 10},
+    {"tag": "vegan", "title": "Vegan", "count": 4},
+    {"tag": "bbq", "title": "BBQ", "count": 6},
+    {"tag": "seafood", "title": "Seafood", "count": 0},
+    {"tag": "breakfast", "title": "Breakfast", "count": 0}
+]
 
-    recipes_data = [
+recipes_data = [
     {
         'id': 101,
         'title': 'Spiced Ground Beef with Mushrooms',
@@ -55,6 +53,8 @@ def index():
     }
 ]
 
+@public.route('/')
+def index():
     return render_template('index.html', tag_data=tag_data, recipes_data=recipes_data)
 
 @public.route('/about')
@@ -63,11 +63,12 @@ def about():
 
 @public.route('/tags')
 def tags():
-    return render_template('tags.html')
+    tag_query = request.values.get('q', 'All')
+    return render_template('tags.html', chosen_tag=tag_query, recipes_data=recipes_data)
 
 @public.route('/recipes')
 def recipes():
-    return render_template('recipes.html')
+    return render_template('recipes.html', tag_data=tag_data, recipes_data=recipes_data)
 
 @public.route('/recipe/<id>/<title>/')
 def recipe(id: int, title: str):
