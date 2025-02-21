@@ -3,6 +3,6 @@ import os
 
 api = Blueprint('api', __name__)
 
-@api.route('/files/<path:filename>')
-def fetch_files(filename):
-    return send_from_directory(os.path.join('dynamic', 'imgs'), filename)
+@api.route('/files/imgs/<path:filename>')
+def fetch_images(filename):
+    return send_from_directory(os.path.join('public', 'imgs'), filename)
