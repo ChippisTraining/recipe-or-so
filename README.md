@@ -46,7 +46,6 @@ source venv/bin/activate
 
 # On Windows
 .venv\Scripts\activate
-# Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)
 
 # Install dependencies
 pip install -r requirements.txt
