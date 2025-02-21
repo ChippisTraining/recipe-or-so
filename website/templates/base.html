@@ -55,9 +55,17 @@
             <a href="{{ url_for('public.index') }}" class="nav-link">home</a>
             <a href="{{ url_for('public.about') }}" class="nav-link">about</a>
             <a href="{{ url_for('public.tags') }}" class="nav-link">tags</a>
-            <a href="{{ url_for('public.recipes') }}" class="nav-link"
-              >recipes</a
-            >
+            <a href="{{ url_for('public.recipes') }}" class="nav-link">recipes</a>
+
+            {% if current_user.is_authenticated %}
+              <!-- AUTH AREA -->
+                <a href="{{ url_for('auth.logout') }}" class="nav-link">logout</a>
+              <!-- AUTH AREA END-->
+            {% else %}
+              <a href="{{ url_for('auth.login') }}" class="nav-link">login</a>
+              <a href="{{ url_for('auth.signup') }}" class="nav-link">signup</a>
+            {% endif %}
+
             <div class="nav-link contact-link">
               <a href="{{ url_for('public.contact') }}" class="btn">contact</a>
             </div>
@@ -66,6 +74,20 @@
       </nav>
       <!-- end of nav -->
     </header>
+
+    <!-- Flash Messages -->
+    <div class="flash-container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+              <i class="flash-icon"></i> {{ message }}
+              <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
 
     <!-- main -->
     {% block content %} {% endblock %}
