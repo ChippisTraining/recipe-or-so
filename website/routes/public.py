@@ -53,6 +53,38 @@ recipes_data = [
     }
 ]
 
+single_data = {
+    'info': {
+        'thumbnail': '144/recipes/103.jpeg',
+        'title': 'Caramel Drizzled Pancakes with Berries',
+        'description': 'A stack of fluffy pancakes topped with caramel sauce, fresh strawberries, and chopped nuts, served with whipped cream on the side.',
+        'prep-time': 10,
+        'cook-time': 15,
+        'servings': 6,
+        'tags': [
+            'Beef',
+            'Breakfast',
+            'Pancakes',
+            'Food'
+        ]
+    },
+    'instructions': [
+        { 'title': 'STEP 1', 'body': 'In a mixing bowl, combine the dry pancake mix and flax seed meal. Gradually add the skim milk, stirring continuously until a smooth batter forms.'},
+        { 'title': 'STEP 2', 'body': 'Preheat a large heavy pot with a lid over medium heat. Lightly grease the surface and pour in small amounts of batter to form pancakes. Cook until bubbles form on the surface, then flip and cook until golden brown.'},
+        { 'title': 'STEP 3', 'body': 'Stack the cooked pancakes on a plate. Drizzle caramel sauce over them, top with fresh strawberries and chopped nuts, and serve with whipped cream on the side.'}
+    ],
+    'ingredients': [
+      '1 1/2 cups dry pancake mix',
+      '1/2 cup flax seed meal',
+      '1 cup skim milk'
+    ],
+    'tools': [
+      'Hand Blender',
+      'Large Heavy Pot With Lid'
+    ]
+}
+
+
 @public.route('/')
 def index():
     ctr = request.values.get('no', None)
@@ -76,7 +108,7 @@ def recipes():
 
 @public.route('/recipe/<id>/<title>/')
 def recipe(id: int, title: str):
-    return render_template('single-recipe.html')
+    return render_template('single-recipe.html', recipe=single_data)
 
 @public.route('/contact', methods=['GET', 'POST'])
 def contact():
