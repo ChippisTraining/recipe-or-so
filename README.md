@@ -47,6 +47,21 @@ source venv/bin/activate
 
 # On Windows
 .venv\Scripts\activate
+# Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)
+
+## You are free to:
+- **Share** — Copy and redistribute the material in any medium or format.
+
+## Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+- **No Derivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
+- **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+### **Disclaimer**
+This software is provided "as-is" without warranty of any kind.  
+By using or distributing this code, you agree to these terms.  
+
+🔗 **[Full License Text](https://creativecommons.org/licenses/by-nd/4.0/legalcode)**
 
 # Install dependencies
 pip install -r requirements.txt
@@ -68,3 +83,7 @@ Now, you can access the web app at:
 [http://127.0.0.1:8000](http://127.0.0.1:8000)  
 
 Or at your chosen address if you modified the `.env` settings.
+
+## NICE
+
+![image](https://github.com/user-attachments/assets/a3efb8eb-d84b-4e96-afea-fe6560c002eb)
