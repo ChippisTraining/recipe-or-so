@@ -59,7 +59,7 @@ def index():
 
 @public.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', recipes_data=recipes_data)
 
 @public.route('/tags')
 def tags():
@@ -76,5 +76,5 @@ def recipe(id: int, title: str):
 
 @public.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('contact.html', recipes_data=recipes_data)
 
