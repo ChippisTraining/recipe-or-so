@@ -299,14 +299,14 @@ Navbar
   display: flex;
   flex-direction: column;
 
-  /* the timey wimey nav hide/show stuff */
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   transition: var(--transition);
 }
 
 .show-links {
-  height: 310px;
+  max-height: 1000px;
+  overflow: visible;
 }
 
 .nav-link {
@@ -334,7 +334,7 @@ Navbar
   }
 
   .navbar {
-    height: 6rem;
+    height: 10rem;
   }
 
   .nav-center {
@@ -348,10 +348,11 @@ Navbar
   }
 
   .nav-links {
-    height: auto;
+    max-height: none;
     flex-direction: row;
     align-items: center;
     width: 100%;
+    overflow: visible;
   }
 
   .nav-link {
@@ -651,7 +652,11 @@ Tags Page
 .tag h5,
 .tag p {
   margin-bottom: 0;
-}
+}/*
+=============== 
+Single Recipe Book
+=============== 
+*/
 
 .tag h5 {
   font-weight: 600;
@@ -774,4 +779,58 @@ Single Recipe Book
   padding-bottom: 0.75rem;
   color: var(--primary-500);
   text-transform: capitalize;
+}
+
+/*
+=============== 
+Flash Message Styling
+=============== 
+*/
+
+.flash-container {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 500px;
+}
+
+.flash-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.flash-message .flash-icon {
+  margin-right: 10px;
+}
+
+.flash-message.success { background: #28a745; }  /* Green */
+.flash-message.danger { background: #dc3545; }   /* Red */
+.flash-message.warning { background: #ffc107; }  /* Yellow */
+.flash-message.info { background: #17a2b8; }      /* Blue */
+
+.flash-message .close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

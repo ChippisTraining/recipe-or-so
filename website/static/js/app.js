@@ -20,3 +20,10 @@ const date = getElement('#date')
 const currentYear = new Date().getFullYear()
 date.textContent = currentYear
 
+// Auto-hide flash messages after 4 seconds
+setTimeout(() => {
+  document.querySelectorAll(".flash-message").forEach(msg => {
+    msg.style.opacity = "0";
+    setTimeout(() => msg.remove(), 500);
+  });
+}, 4000);
