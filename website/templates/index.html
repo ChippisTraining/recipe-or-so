@@ -40,7 +40,12 @@
     <!-- recipes list -->
     <div class="recipes-list">
       <!-- single recipe -->
-      <a href="{{ url_for('public.recipe', author='Dominik', id=164) }}" class="recipe">lallala</a>
+      <a href="{{ url_for('public.recipe', id=114, author='Chipperfluff') }}" class="recipe">
+        <!-- Keep this space (auto formater dumps all into one line (╯°□°)╯︵ ┻━┻) -->
+        <img src="{{ url_for('api.fetch_files', filename='114/recipes/recipe-1.jpeg') }}" alt="Recipe Image" class="img recipe-img" />
+        <h5>Recipe Name</h5>
+        <p>Prep : 99min | Cook 99min</p>
+      </a>
       <!-- end of single recipe -->
     </div>
     <!-- ends of recipes list -->
