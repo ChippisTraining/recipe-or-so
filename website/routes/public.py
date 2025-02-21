@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+import os
 
 public = Blueprint('public', __name__, template_folder='templates')
 
@@ -29,9 +30,9 @@ def tags():
 def recipes():
     return render_template('recipes.html')
 
-@public.route('/recipe/<author>/<id>')
-def recipe(author: str, id: int):
-    return render_template('tags.html')
+@public.route('/recipe/<id>/<author>/')
+def recipe(id: int, author: str):
+    return render_template('single-recipe.html')
 
 @public.route('/contact')
 def contact():
