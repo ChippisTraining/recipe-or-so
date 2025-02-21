@@ -15,39 +15,43 @@ def index():
         {"tag": "seafood", "title": "Seafood", "count": 0},
         {"tag": "breakfast", "title": "Breakfast", "count": 0}
     ]
-    
+
     recipes_data = [
     {
         'id': 101,
         'title': 'Spiced Ground Beef with Mushrooms',
-        'thumbnail': '<user id>/recipes/recipe-1.jpeg',
-        'alt_text': 'A pan filled with spiced ground beef, mushrooms, and onions cooked on a stove.',
-        'prep_time': 10,
-        'cook_time': 20
+        'url-title': 'Spiced Ground Beef with Mushrooms'.replace(' ', '-').lower(),
+        'thumbnail': '114/recipes/101.jpeg',
+        'alt-text': 'A pan filled with spiced ground beef, mushrooms, and onions cooked on a stove.',
+        'prep-time': 10,
+        'cook-time': 20
     },
     {
         'id': 102,
-        'title': 'Creamy Tomato Basil Soup',
-        'thumbnail': '<user id>/recipes/recipe-2.jpeg',
-        'alt_text': 'A bowl of smooth tomato soup garnished with fresh basil, served with bread on the side.',
-        'prep_time': 10,
-        'cook_time': 30
+        'title': 'Herb-Crusted Rack of Lamb',
+        'url-title': 'Herb-Crusted Rack of Lamb'.replace(' ', '-').lower(),
+        'thumbnail': '144/recipes/102.jpeg',
+        'alt-text': 'A perfectly roasted rack of lamb with a crispy herb crust, placed on a dark slate serving board.',
+        'prep-time': 15,
+        'cook-time': 25
     },
     {
         'id': 103,
-        'title': 'Herb-Crusted Rack of Lamb',
-        'thumbnail': '<user id>/recipes/recipe-3.jpeg',
-        'alt_text': 'A perfectly roasted rack of lamb with a crispy herb crust, placed on a dark slate serving board.',
-        'prep_time': 15,
-        'cook_time': 25
+        'title': 'Caramel Drizzled Pancakes with Berries',
+        'url-title': 'Caramel Drizzled Pancakes with Berries'.replace(' ', '-').lower(),
+        'thumbnail': '144/recipes/103.jpeg',
+        'alt-text': 'A stack of fluffy pancakes topped with caramel sauce, fresh strawberries, and chopped nuts, served with whipped cream on the side.',
+        'prep-time': 10,
+        'cook-time': 15
     },
     {
         'id': 104,
-        'title': 'Caramel Drizzled Pancakes with Berries',
-        'thumbnail': '<user id>/recipes/recipe-4.jpeg',
-        'alt_text': 'A stack of fluffy pancakes topped with caramel sauce, fresh strawberries, and chopped nuts, served with whipped cream on the side.',
-        'prep_time': 10,
-        'cook_time': 15
+        'title': 'Creamy Tomato Basil Soup',
+        'url-title': 'Creamy Tomato Basil Soup'.replace(' ', '-').lower(),
+        'thumbnail': '114/recipes/104.jpeg',
+        'alt-text': 'A bowl of smooth tomato soup garnished with fresh basil, served with bread on the side.',
+        'prep-time': 10,
+        'cook-time': 30
     }
 ]
 
