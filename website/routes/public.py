@@ -15,8 +15,43 @@ def index():
         {"tag": "seafood", "title": "Seafood", "count": 0},
         {"tag": "breakfast", "title": "Breakfast", "count": 0}
     ]
+    
+    recipes_data = [
+    {
+        'id': 101,
+        'title': 'Spiced Ground Beef with Mushrooms',
+        'thumbnail': '<user id>/recipes/recipe-1.jpeg',
+        'alt_text': 'A pan filled with spiced ground beef, mushrooms, and onions cooked on a stove.',
+        'prep_time': 10,
+        'cook_time': 20
+    },
+    {
+        'id': 102,
+        'title': 'Creamy Tomato Basil Soup',
+        'thumbnail': '<user id>/recipes/recipe-2.jpeg',
+        'alt_text': 'A bowl of smooth tomato soup garnished with fresh basil, served with bread on the side.',
+        'prep_time': 10,
+        'cook_time': 30
+    },
+    {
+        'id': 103,
+        'title': 'Herb-Crusted Rack of Lamb',
+        'thumbnail': '<user id>/recipes/recipe-3.jpeg',
+        'alt_text': 'A perfectly roasted rack of lamb with a crispy herb crust, placed on a dark slate serving board.',
+        'prep_time': 15,
+        'cook_time': 25
+    },
+    {
+        'id': 104,
+        'title': 'Caramel Drizzled Pancakes with Berries',
+        'thumbnail': '<user id>/recipes/recipe-4.jpeg',
+        'alt_text': 'A stack of fluffy pancakes topped with caramel sauce, fresh strawberries, and chopped nuts, served with whipped cream on the side.',
+        'prep_time': 10,
+        'cook_time': 15
+    }
+]
 
-    return render_template('index.html', tag_data=tag_data)
+    return render_template('index.html', tag_data=tag_data, recipes_data=recipes_data)
 
 @public.route('/about')
 def about():
@@ -30,8 +65,8 @@ def tags():
 def recipes():
     return render_template('recipes.html')
 
-@public.route('/recipe/<id>/<author>/')
-def recipe(id: int, author: str):
+@public.route('/recipe/<id>/<title>/')
+def recipe(id: int, title: str):
     return render_template('single-recipe.html')
 
 @public.route('/contact')
