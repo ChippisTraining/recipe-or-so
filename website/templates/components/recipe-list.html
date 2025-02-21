@@ -1,0 +1,24 @@
+<div class="recipes-list">
+    <!-- generate templates-->
+    {% for recipe in recipes_data %}
+        <!-- single recipe -->
+        <a
+        href="{{ url_for('public.recipe', id=recipe['id'], title=recipe['url-title']) }}"
+        class="recipe"
+        >
+        <!-- Keep this space (auto formater dumps all into one line (╯°□°)╯︵ ┻━┻) -->
+        <img
+            src="{{ url_for('api.fetch_images', filename=recipe['thumbnail']) }}"
+            alt="{{ recipe['alt-text'] }}"
+            class="img recipe-img"
+        />
+        <h5>{{ recipe['title'] }}</h5>
+        <p>
+            Prep : {{ recipe['prep-time'] }}min | Cook {{ recipe['cook-time']
+            }}min
+        </p>
+        </a>
+        <!-- end of single recipe -->
+    {% endfor %}
+</div>
+<!-- ends of recipes list -->

@@ -1,0 +1,20 @@
+<div class="tags-container">
+  <h4>recipes</h4>
+  <div class="tags-list">
+    <!-- no tags -->
+    {% if not tag_data %}
+    <p class="no-tags">No Tags</p>
+    {% endif %}
+    <!-- end of no tags -->
+
+    <!-- tags loop -->
+    {% for tag in tag_data %}
+    <a
+      href="{{ url_for('public.tags', q=tag.tag) }}"
+      class="tag-url {% if tag.count == 0 %}tag-zero{% endif %}"
+      >{{ tag.title }} ({{ tag.count }})</a
+    >
+    {% endfor %}
+    <!-- end of tags loop -->
+  </div>
+</div>
