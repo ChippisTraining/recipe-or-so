@@ -44,8 +44,4 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(api, url_prefix='/api')
 
-    @app.errorhandler(404)
-    def not_found(e):
-        return render_template("404.html"), 404
-
     return app

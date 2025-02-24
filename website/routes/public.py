@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 import os
 
-public = Blueprint('public', __name__, template_folder='templates')
+public = Blueprint('public', __name__, template_folder='templates/public')
 
 tag_data = [
     {"tag": "pizza", "title": "Pizza", "count": 12},
@@ -189,29 +189,32 @@ data = {
 @public.route('/')
 def index():
     ctr = request.values.get('no', None)
-    return render_template('index.html', tag_data=tag_data, recipes_data=[] if ctr else recipes_data)
+    return render_template('public/index.html', tag_data=tag_data, recipes_data=[] if ctr else recipes_data)
 
 @public.route('/about')
 def about():
-    return render_template('about.html', recipes_data=recipes_data)
+    return render_template('public/about.html', recipes_data=recipes_data)
 
 @public.route('/tag/<tag>')
 def tags_template(tag: str):
-    return render_template('tag-template.html', chosen_tag=tag, recipes_data=recipes_data)
+    return render_template('public/tag-template.html', chosen_tag=tag, recipes_data=recipes_data)
 
 @public.route('/tags')
 def tags():
-    return render_template('tags.html', tag_data=tag_data)
+    return render_template('public/tags.html', tag_data=tag_data)
 
 @public.route('/recipes')
 def recipes():
-    return render_template('recipes.html', tag_data=tag_data, recipes_data=recipes_data)
+    return render_template('public/recipes.html', tag_data=tag_data, recipes_data=recipes_data)
 
 @public.route('/recipe/<id>/<title>/')
 def recipe(id: int, title: str):
-    return render_template('single-recipe.html', recipe=data.get(str(id)))
+    return render_template('public/single-recipe.html', recipe=data.get(str(id)))
 
 @public.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html', recipes_data=recipes_data)
+    return render_template('public/contact.html', recipes_data=recipes_data)
 
+@public.errorhandler(404)
+def not_found(e):
+    return render_template("error/404.html"), 404
